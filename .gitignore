@@ -25,7 +25,7 @@ hs_err_pid*
 # MacOS files
 .DS_Store
 
-# VSC files
+# Maven files
 .classpath
 .project
 .settings/
@@ -34,5 +34,3 @@ target/
 # IntelliJ files
 .idea/
 *.iml
-
-# Reports
