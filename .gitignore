@@ -24,3 +24,15 @@ hs_err_pid*
 
 # MacOS files
 .DS_Store
+
+# VSC files
+.classpath
+.project
+.settings/
+target/
+
+# IntelliJ files
+.idea/
+*.iml
+
+# Reports
