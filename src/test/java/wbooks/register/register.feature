@@ -21,10 +21,10 @@ Feature: enter the required fields to create a new user
   Scenario: register a new user
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 201
-      And match response == { access_token: '#string', renew_id: '#string' }
+    And match response == { access_token: '#string', renew_id: '#string' }
 
     * def access_token = response.access_token
     * def renew_id = response.renew_id
@@ -32,42 +32,42 @@ Feature: enter the required fields to create a new user
   Scenario: register fails, user already exists
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 201
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 422
-      And match response.error contains 'Email has already been taken'
+    And match response.error contains 'Email has already been taken'
 
   Scenario: register fails, password is too short
 
     * set newUser.user.password = '12345'
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 422
-      And match response.error contains 'Password is too short (minimum is 6 characters)'
+    And match response.error contains 'Password is too short (minimum is 6 characters)'
 
   Scenario: register fails, email format is invalid
 
     * set newUser.user.email = 'emailTest'
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 422
-      And match response.error contains 'Email is invalid'
+    And match response.error contains 'Email is invalid'
 
   Scenario Outline: register fails, schema is invalid
 
     * remove newUser.user.<requiredUserField>
 
     Given path 'users'
-      And request newUser
+    And request newUser
     When method post
     Then status 422
 
