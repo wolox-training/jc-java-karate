@@ -22,7 +22,20 @@ Feature: get data from specific user
 
   Scenario: get user data
     Given path 'users/1'
-      And header Authorization = authToken
+    And header Authorization = authToken
     When method get
     Then status 200
-      And match response == userDataSchema
+    And match response == userDataSchema
+
+  Scenario: user data not authorized
+    * def fakeToken = 'eyFaKeToKen123'
+    Given path 'users/1'
+    And header Authorization = fakeToken
+    When method get
+    Then status 401
+
+  Scenario: user data not found
+    Given path 'users/0'
+    And header Authorization = authToken
+    When method get
+    Then status 400
