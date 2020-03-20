@@ -24,7 +24,7 @@ Feature: get data from specific user
     Then status 401
 
   Scenario: user data not found
-    Given path 'users/0'
+    Given path 'users', 0
     And header Authorization = authToken
     When method get
     Then status 404
