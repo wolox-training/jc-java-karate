@@ -7,19 +7,8 @@ Feature: get data from specific user
     * def authToken = login.access_token
     * def fakeToken = 'eyFaKeToKen123'
 
+    * def userDataSchema = read('classpath:wbooks/userdata/userdata-schema.json')
     * def userId = 1
-    * def userDataSchema =
-    """
-    {
-      id: '#number? _ == userId',
-      email: '#string',
-      last_name: '#string',
-      first_name: '#string',
-      rents_counter: '#number',
-      comments_counter: '#number',
-      image_url: '##string'
-    }
-    """
 
   Scenario: get user data
     Given path 'users', userId
@@ -29,7 +18,7 @@ Feature: get data from specific user
     And match response == userDataSchema
 
   Scenario: user data not authorized
-    Given path 'users/1'
+    Given path 'users', userId
     And header Authorization = fakeToken
     When method get
     Then status 401

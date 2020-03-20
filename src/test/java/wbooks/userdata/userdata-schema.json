@@ -1,0 +1,9 @@
+{
+  "id": "#number? _ == userId",
+  "email": "#string",
+  "last_name": "#string",
+  "first_name": "#string",
+  "rents_counter": "#number",
+  "comments_counter": "#number",
+  "image_url": "##string"
+}
