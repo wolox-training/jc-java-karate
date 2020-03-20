@@ -5,11 +5,13 @@ Feature: get data from specific user
 
     * def login = callonce read('classpath:wbooks/login/login.feature@login')
     * def authToken = login.access_token
+    * def fakeToken = 'eyFaKeToKen123'
 
+    * def userId = 1
     * def userDataSchema =
     """
     {
-      id: '#number',
+      id: '#number? _ == userId',
       email: '#string',
       last_name: '#string',
       first_name: '#string',
@@ -20,16 +22,13 @@ Feature: get data from specific user
     """
 
   Scenario: get user data
-    * def userId = 2
     Given path 'users/' + userId
     And header Authorization = authToken
     When method get
     Then status 200
     And match response == userDataSchema
-    And match response.id == userId
 
   Scenario: user data not authorized
-    * def fakeToken = 'eyFaKeToKen123'
     Given path 'users/1'
     And header Authorization = fakeToken
     When method get
