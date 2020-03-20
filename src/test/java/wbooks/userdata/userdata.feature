@@ -22,7 +22,7 @@ Feature: get data from specific user
     """
 
   Scenario: get user data
-    Given path 'users/' + userId
+    Given path 'users', userId
     And header Authorization = authToken
     When method get
     Then status 200
