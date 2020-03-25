@@ -9,6 +9,7 @@ Feature: get data from specific user
 
     * def userDataSchema = read('classpath:wbooks/userdata/userdata-schema.json')
     * def userId = 1
+    * set userDataSchema.id = userDataSchema.id + '? _ == userId'
 
   Scenario: get user data
     Given path 'users', userId

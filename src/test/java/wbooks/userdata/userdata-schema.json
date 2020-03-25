@@ -1,5 +1,5 @@
 {
-  "id": "#number? _ == userId",
+  "id": "#number",
   "email": "#string",
   "last_name": "#string",
   "first_name": "#string",
