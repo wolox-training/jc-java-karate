@@ -3,7 +3,7 @@ Feature: login to access the system
   Background:
     * url 'https://nodejs-qa-training.herokuapp.com'
 
-    * def register = callonce read('classpath:nodejs/flows/register.feature')
+    * def register = callonce read('classpath:nodejs/flows/auth/register.feature')
     * def credentials =
     """
     {
