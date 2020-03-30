@@ -3,7 +3,6 @@ Feature: create a new user in the system
   Background:
     * url 'https://nodejs-qa-training.herokuapp.com'
 
-  Scenario: register success
     * def now = function(){ return java.lang.System.currentTimeMillis() }
     * def email = 'email' + now() + '@wolox.com.ar'
     * def newUser =
@@ -16,6 +15,7 @@ Feature: create a new user in the system
       }
       """
 
+  Scenario: register success
     Given path 'users'
     And request newUser
     When method post
