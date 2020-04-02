@@ -15,6 +15,7 @@ function fn() {
 
   switch (env) {
     case 'dev':
+        config.urlNodeJS = 'https://nodejs-qa-training.herokuapp.com';
         // customize
         break;
     case 'stage':

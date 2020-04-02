@@ -25,7 +25,7 @@ class NodeJSTest {
 
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:nodejs").parallel(5);
+        Results results = Runner.path("classpath:nodejs").tags("~@ignore").parallel(5);
         generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
