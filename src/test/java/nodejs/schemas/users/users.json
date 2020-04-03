@@ -2,6 +2,5 @@
   "first_name": "#string",
   "last_name": "#string",
   "email": "#string",
-  "admin": "##boolean",
-  "role": "##string? _ == 'regular' || _ == 'admin'"
+  "role": "#string? _ == 'regular' || _ == 'admin'"
 }

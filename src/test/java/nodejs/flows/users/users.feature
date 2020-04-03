@@ -4,6 +4,7 @@ Feature: get all users data
     * url urlNodeJS
     * def usersPageSchema = read('classpath:nodejs/schemas/users/usersPage.json')
     * def userSchema = read('classpath:nodejs/schemas/users/users.json')
+    * set usersPageSchema.page = usersPageSchema.page + ' userSchema'
 
   Scenario Outline: get user data as regular user
     * def auth = call read('classpath:nodejs/flows/auth/loginRole.feature@<role>')
@@ -14,12 +15,8 @@ Feature: get all users data
     When method get
     Then status 200
     And match response == usersPageSchema
-    And match each response.page == userSchema
 
     Examples:
       | role    |
       | regular |
       | admin   |
-
-
-
