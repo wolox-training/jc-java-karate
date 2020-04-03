@@ -1,7 +1,7 @@
 Feature: create a new user in the system
 
   Background:
-    * url 'https://nodejs-qa-training.herokuapp.com'
+    * url urlNodeJS
 
     * def now = function(){ return java.lang.System.currentTimeMillis() }
     * def email = 'email' + now() + '@wolox.com.ar'
