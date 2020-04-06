@@ -13,3 +13,4 @@ Feature: login to access the system
     And match response == loginSchema
 
     * def token = responseHeaders['Authorization'][0]
+    * def userId = response.user_id

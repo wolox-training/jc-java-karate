@@ -29,5 +29,6 @@ Feature: working with albums
   Scenario: buy an album
     Given path 'albums', albumId
     And header Authorization = token
+    And request ''
     When method post
     Then status 201
